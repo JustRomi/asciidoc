@@ -1,0 +1,425 @@
+= Table
+:toc:
+(((AsciiDoc)))
+((("AsciiDoc style", See="Style Guide")))
+
+
+== Example 1
+
+----
+[cols=2*]
+|===
+|Firefox
+|Web Browser
+
+|Ruby
+|Programming Language
+
+|TorqueBox
+|Application Server
+|===
+----
+
+[cols=2*]
+|===
+|Firefox
+|Web Browser
+
+|Ruby
+|Programming Language
+
+|TorqueBox
+|Application Server
+|===
+
+
+== Example 2
+
+----
+[cols=2*, options=header]
+|===
+|Name
+|Group
+
+|Firefox
+|Web Browser
+
+|Ruby
+|Programming Language
+|===
+----
+
+[cols=2*, options=header]
+|===
+|Name
+|Group
+
+|Firefox
+|Web Browser
+
+|Ruby
+|Programming Language
+|===
+
+
+== Example 3
+
+----
+|===
+|Name  |Group  |Description
+
+|Firefox
+|Web Browser
+|Mozilla Firefox is an open-source web browser.
+It's designed for standard compliance,
+performance, portability.
+
+|Ruby
+|Programming Language
+|A programmer's best friend
+|===
+----
+
+|===
+|Name  |Group  |Description
+
+|Firefox
+|Web Browser
+|Mozilla Firefox is an open-source web browser.
+It's designed for standard compliance,
+performance, portability.
+
+|Ruby
+|Programming Language
+|A programmer's best friend.
+|===
+
+
+== Example 4
+
+You can set relative widths of each column using *a coma separated list of values* in cols block attribute.
+
+----
+[cols="2,3,5"]
+|===
+|Name  |Group  |Description
+
+|Firefox
+|Web Browser
+|Mozilla Firefox is an open-source web browser.
+It's designed for standard compliance,
+performance, portability.
+
+|Ruby
+|Programming Language
+|A programmer's best friend
+|===
+----
+
+[cols="2,3,5"]
+|===
+|Name  |Group  |Description
+
+|Firefox
+|Web Browser
+|Mozilla Firefox is an open-source web browser.
+It's designed for standard compliance,
+performance, portability.
+
+|Ruby
+|Programming Language
+|A programmer's best friend
+|===
+
+
+== Example 5
+If you want to include blocks or lists inside the contents of a column, you can put an *a* (for asciidoc) at the end of the column's relative value.
+
+----
+[cols="2,3,5a"]
+|===
+|Name  |Group  |Description
+
+|Firefox
+|Web Browser
+|Mozilla Firefox is an open-source web browser.
+It's designed for:
+* standard compliance,
+* performance and
+* portability.
+
+|Ruby
+|Programming Language
+|A programmer's best friend
+|===
+----
+
+[cols="2,3,5a"]
+|===
+|Name  |Group  |Description
+
+|Firefox
+|Web Browser
+|Mozilla Firefox is an open-source web browser.
+It's designed for:
+
+* standard compliance,
+* performance and
+* portability.
+
+|Ruby
+|Programming Language
+|A programmer's best friend
+|===
+
+
+NOTE: Alternatively, you can apply the AsciiDoc style to an individual cell by prefixing the vertical bar with an *a*:
+----
+a|Mozilla Firefox is an open-source web browser.
+It's designed for:
+* standard compliance,
+* performance and
+* portability.
+----
+
+=== Example - code table cell
+
+----
+[cols="2,3,5"]
+|===
+|Block  |Phases  |Description
+
+|Given:
+|Setup
+a| The given block is where you do any setup work for the feature that you are describing. It may not be preceded by other blocks, and may not be repeated.
+----
+given: +
+def stack = new Stack() +
+def elem = "push me"
+----
+|===
+
+----
+[cols="2,3,5"]
+|===
+|Block  |Phases  |Description
+
+|Given:
+|Setup
+a| The given block is where you do any setup work for the feature that you are describing. It may not be preceded by other blocks, and may not be repeated.
+----
+given: +
+def stack = new Stack()
+def elem = "push me"
+----
+|===
+
+== Example 6
+
+----
+[%header, format=csv]
+|===
+Artist,Track,Genre
+Baauer,Harlem Shake, Hip Hop
+The Lumineers, Ho Hey, Rock
+|===
+----
+
+
+[%header, format=csv]
+|===
+Artist,Track,Genre
+Baauer,Harlem Shake, Hip Hop
+The Lumineers, Ho Hey, Rock
+|===
+
+
+== Example 7
+
+----
+,===
+a,b,c
+,===
+
+,===
+a:b:c
+:===
+----
+
+,===
+a,b,c
+,===
+
+:===
+a:b:c
+:===
+
+== Table Column Formatting
+
+To apply a specifier, we must set the *cols* attribute and assign it a value.
+A column specifier can contain any of the following components:
+
+=== Multiplier
+
+The multiplier (*) is used when you want a specifier to apply to more
+than one consecutive column. If used, the multiplier must always be
+placed at the beginning of the specifier.
+
+----
+[cols="3*"]
+|===
+|cell in column 1, row 1
+|cell in column 2, row 1
+|cell in column 3, row 1
+|===
+----
+
+[cols="3*"]
+|===
+|cell in column 1, row 1
+|cell in column 2, row 1
+|cell in column 3, row 1
+|===
+
+=== Align
+
+. Left <
+. Right >
+. Center ^
+
+
+
+
+----
+[cols="<,^,>"]
+|===
+|cell in column 1, row 1
+|cell in column 2, row 1
+|cell in column 3, row 1
+|===
+
+|===
+|cell in column 1, row 2
+|cell in column 2, row 2
+|cell in column 3, row 2
+|===
+----
+
+[cols="<,^,>"]
+|===
+|cell in column 1, row 1
+|cell in column 2, row 1
+|cell in column 3, row 1
+
+|cell in column 1, row 2
+|cell in column 2, row 2
+|cell in column 3, row 2
+|===
+
+NOTE: The content in the examples above is only centered on the horizontal.
+It can also be aligned vertically when the alignment operator
+is prefixed with a dot (.).
+
+
+
+=== Width
+
+The width component sets the width of a column. Its value can be
+a propotional integer (the default is 1) or a percentage (1 to 99).
+We do not need to include the percent sign (%).
+
+----
+[cols="1,2,6"]
+|===
+|cell in column 1, row 1
+|cell in column 1, row 2
+|cell in column 1, row 3
+|===
+----
+
+[cols="1,2,6"]
+|===
+|cell in column 1, row 1
+|cell in column 1, row 2
+|cell in column 1, row 3
+|===
+
+
+=== Style
+
+[cols="3,1,7" options=header]
+|===
+|Style Name
+|Value
+|Description
+
+|Asciidoc
+|a
+|Supports block-level elements (paragraphs, delimited blocks,
+  and block macros). This style effectively creates a nested,
+  standalone AsciiDoc document. Implicit attributes such as doctitle
+  from the parent document will be shadowed. Custom attributes
+  are inherited.
+
+|Emphasis
+|e
+|Text is italicized
+
+|Header
+|h
+|Header styles are applied to the column.
+
+|Literal
+|l
+|Column content is treated as if it were inside a literal block.
+
+|Monospaced
+|m
+|Text is rendered in monospaced font.
+
+|standalone
+(default style)
+|d
+|Text is handled like a normal paragraph. Supports all markup (i.e.,
+  inline formatting, inline macros) that is permitted in a paragraph.
+
+|Strong
+|s
+|Text is bolded
+
+|Verse
+|v
+|Column content is treated as if it were inside a verse block.
+|===
+
+
+
+[cols="h,m,s,e,a"]
+|===
+|cell in column 1, row 1
+|cell in column 1, row 2
+|cell in column 1, row 3
+|cell in column 1, row 4
+|
+[java]
+----
+Integer i = 10;
+----
+|===
+
+
+=== All Together
+
+[cols=".<2,.^f,^.>3"]
+|===
+|Cell in column 1, row 1 with lots and lots and lots and lots of content
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2 and another bucket of content, and then a jelly roll of content
+|===
+
+
+=== Cell formatting

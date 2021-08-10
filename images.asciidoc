@@ -1,0 +1,28 @@
+= Images
+:toc:
+(((AsciiDoc)))
+((("AsciiDoc style, see="Style Guide")))
+
+
+== Anatomy of images macro
+
+----
+image::url[optional text link, optional target attribute, optional role attribute]
+
+Example:
+image::https://i.imgur.com/cOiSmx7.jpg?1[title="A House"]
+
+----
+
+image::https://i.imgur.com/cOiSmx7.jpg?1[a house, 200, 150, title="A House"]
+
+== Anatomy of a link macro
+
+----
+link:url[optional link text, optional target attribute, optional role attribute]
+
+link:https://i.imgur.com/cOiSmx7.jpg?1[A house, in New Window, window=_blank]
+
+----
+
+link:https://i.imgur.com/cOiSmx7.jpg?[A house, in New Window, window=_blank]
